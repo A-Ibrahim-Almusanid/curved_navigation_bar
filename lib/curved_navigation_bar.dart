@@ -55,6 +55,8 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
   late AnimationController _animationController;
   late int _length;
 
+  static const double _baseHeight = 75.0;
+
   @override
   void initState() {
     super.initState();
@@ -124,7 +126,7 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
                   alignment: Alignment.bottomCenter,
                   children: <Widget>[
                     Positioned(
-                      bottom: -(widget.height * (40.0 / 75.0)),
+                      bottom: -40 - (_baseHeight - widget.height),
                       left: textDirection == TextDirection.rtl
                           ? null
                           : _pos * maxWidth,
@@ -136,8 +138,7 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
                         child: Transform.translate(
                           offset: Offset(
                             0,
-                            -(1 - _buttonHide) *
-                                (widget.height * (80.0 / 75.0)),
+                            -(1 - _buttonHide) * 80,
                           ),
                           child: Material(
                             color: widget.buttonBackgroundColor ?? widget.color,
@@ -153,19 +154,19 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
                     Positioned(
                       left: 0,
                       right: 0,
-                      bottom: 0,
+                      bottom: 0 - (_baseHeight - widget.height),
                       child: CustomPaint(
                         painter: NavCustomPainter(
                             _pos, _length, widget.color, textDirection),
                         child: Container(
-                          height: widget.height,
+                          height: _baseHeight,
                         ),
                       ),
                     ),
                     Positioned(
                       left: 0,
                       right: 0,
-                      bottom: 0,
+                      bottom: 0 - (_baseHeight - widget.height),
                       child: SizedBox(
                           height: widget.height + 25.0,
                           child: Row(
