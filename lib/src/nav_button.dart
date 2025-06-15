@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NavButton extends StatelessWidget {
+  final double navBarHeight;
   final double position;
   final int length;
   final int index;
@@ -13,6 +14,7 @@ class NavButton extends StatelessWidget {
     required this.length,
     required this.index,
     required this.child,
+    required this.navBarHeight,
   });
 
   @override
@@ -21,6 +23,9 @@ class NavButton extends StatelessWidget {
     final difference = (position - desiredPosition).abs();
     final verticalAlignment = 1 - length * difference;
     final opacity = length * difference;
+    const double _translationFactor =
+        40.0 / 75.0; // keeps original proportion when nav bar height is 75
+
     return Expanded(
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
@@ -28,10 +33,13 @@ class NavButton extends StatelessWidget {
           onTap(index);
         },
         child: Container(
-            height: 75.0,
+            height: navBarHeight,
             child: Transform.translate(
               offset: Offset(
-                  0, difference < 1.0 / length ? verticalAlignment * 40 : 0),
+                  0,
+                  difference < 1.0 / length
+                      ? verticalAlignment * navBarHeight * _translationFactor
+                      : 0),
               child: Opacity(
                   opacity: difference < 1.0 / length * 0.99 ? opacity : 1.0,
                   child: child),
