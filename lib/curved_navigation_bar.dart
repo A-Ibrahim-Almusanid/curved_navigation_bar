@@ -12,7 +12,7 @@ class CurvedNavigationBar extends StatefulWidget {
   final List<Widget> items;
   final int index;
   final Color color;
-  final Color? buttonBackgroundColor;
+  final Color? buttonBackgroundColor; 
   final Color backgroundColor;
   final ValueChanged<int>? onTap;
   final _LetIndexPage letIndexChange;
