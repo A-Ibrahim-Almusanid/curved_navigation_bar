@@ -17,9 +17,9 @@ class CurvedNavigationBar extends StatefulWidget {
   final ValueChanged<int>? onTap;
   final _LetIndexPage letIndexChange;
   final Curve animationCurve;
-  final Duration animationDuration;
+  final Duration animationDuration; 
   final double height;
-  final double? maxWidth;
+  final double? maxWidth; 
 
   CurvedNavigationBar({ 
     Key? key,
