@@ -21,7 +21,7 @@ class CurvedNavigationBar extends StatefulWidget {
   final double height;
   final double? maxWidth;
 
-  CurvedNavigationBar({
+  CurvedNavigationBar({ 
     Key? key,
     required this.items,
     this.index = 0,
