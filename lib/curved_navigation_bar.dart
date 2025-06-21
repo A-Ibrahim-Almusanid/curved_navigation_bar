@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:curved_navigation_bar/src/nav_custom_clipper.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 
-import 'src/nav_button.dart';
-import 'src/nav_custom_painter.dart';
+import 'src/nav_button.dart'; 
+import 'src/nav_custom_painter.dart'; 
 
-typedef _LetIndexPage = bool Function(int value);
+typedef _LetIndexPage = bool Function(int value); 
 
 class CurvedNavigationBar extends StatefulWidget {
   final List<Widget> items;
